@@ -1,7 +1,7 @@
 import React, {useEffect} from 'react';
 import { Container, Row, Col, Card, CardBody, FormGroup, Alert, Form, Input, Button, FormFeedback, Label, InputGroup, InputGroupAddon } from 'reactstrap';
 import { connect } from 'react-redux';
-import { withRouter, Redirect } from 'react-router-dom';
+import { withRouter, Redirect, Link } from 'react-router-dom';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import config from '../../config';
@@ -60,13 +60,13 @@ const Login = (props) => {
     }
   }
   
-  const onSignUp = () => {
-    if (isElectron())
-      engine.runCommand("runlink", config.RB_SERVER);
-    else {
-      window.open(config.RB_SERVER);
-    }
-  }
+  // const onSignUp = () => {
+  //   if (isElectron())
+  //     engine.runCommand("runlink", config.RB_SERVER);
+  //   else {
+  //     window.open(config.RB_SERVER);
+  //   }
+  // }
 
   return (
     <React.Fragment>
@@ -164,7 +164,7 @@ const Login = (props) => {
             </Card>
 
             <div className="mt-5 text-center">
-              <p>{t("Don't have an account")} ? <span onClick={onSignUp} rel="noopener noreferrer" className="font-weight-medium text-primary" style={{cursor: 'pointer'}}>Signup now</span> </p>
+              <p>{t("Don't have an account")} ? <Link to="register" rel="noopener noreferrer" className="font-weight-medium text-primary" style={{cursor: 'pointer'}}>Register now</Link> </p>
               <p>© 2021 RB Corporation</p>
             </div>
           </Col>

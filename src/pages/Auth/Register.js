@@ -34,17 +34,17 @@ const Register = (props) => {
     const formik = useFormik({
         initialValues: {
             username: '',
-            email: '',
+            // email: '',
             password: ''
         },
         validationSchema: Yup.object({
             username: Yup.string().required('Required'),
-            email: Yup.string().email('Enter proper email').required('Required'),
+            // email: Yup.string().email('Enter proper email').required('Required'),
             password: Yup.string()
                 .required('Required')
         }),
         onSubmit: values => {
-            props.registerUser(values);
+            props.registerUser(values, props.history);
         },
     });
    
@@ -78,7 +78,7 @@ const Register = (props) => {
                                         
                                     <Form onSubmit={formik.handleSubmit}>
 
-                                        <FormGroup>
+                                        {/* <FormGroup>
                                             <Label>{t('Email')}</Label>
                                             <InputGroup className="mb-3 bg-soft-light input-group-lg rounded-lg">
                                                 <InputGroupAddon addonType="prepend">
@@ -101,7 +101,7 @@ const Register = (props) => {
                                                     <FormFeedback type="invalid">{formik.errors.email}</FormFeedback>
                                                 ) : null}
                                             </InputGroup>
-                                        </FormGroup>
+                                        </FormGroup> */}
     
                                         <FormGroup>
                                             <Label>{t('Username')}</Label>

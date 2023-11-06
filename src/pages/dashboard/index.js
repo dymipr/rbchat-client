@@ -222,7 +222,7 @@ class Index extends Component {
     return (
       <React.Fragment>
         <div className="mobile-reload-div d-block d-lg-none mr-2">
-          <Link id="reload-mobile-header" onClick={() => { reload(); }}>
+          <Link to="#" id="reload-mobile-header" onClick={() => { reload(); }}>
             <i className="ri-refresh reload-icon"></i>
           </Link>
           <UncontrolledTooltip target="reload-mobile-header" placement="bottom">

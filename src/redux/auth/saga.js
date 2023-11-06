@@ -74,7 +74,7 @@ function* logout({ payload: { history } }) {
 /**
  * Register the user
  */
-function* register({ payload: { user } }) {
+function* register({ payload: { user, history } }) {
   try {
     const email = user.email;
     const password = user.password;
@@ -83,7 +83,14 @@ function* register({ payload: { user } }) {
       yield put(registerUserSuccess(response));
     } else {
       const response = yield call(postRequest, '/auth/register', user);
-      yield put(registerUserSuccess(response));
+      if (response.success) {
+        yield put(registerUserSuccess(response));
+      }
+      else {
+        yield put(apiError(response.message));
+        return;
+      }
+      setTimeout(() => history.push("/login"), 3000);
     }
         
   } catch (error) {

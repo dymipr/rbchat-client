@@ -20,9 +20,9 @@ export const loginUserSuccess = (user) => ({
     payload: user
 });
 
-export const registerUser = (user) => ({
+export const registerUser = (user, history) => ({
     type: REGISTER_USER,
-    payload: { user }
+    payload: { user, history }
 });
 
 export const registerUserSuccess = (user) => ({
